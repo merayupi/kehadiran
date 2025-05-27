@@ -18,10 +18,10 @@ Public Class agenda
                     Dim tanggal As String = tgl_agenda.ToString("yyyy-MM-dd")
                     Dim jam As String = tgl_agenda.ToString("HH:mm")
 
-                    TextBox1.Text = jam
-                    TextBox2.Text = tanggal
-                    TextBox3.Text = reader("name").ToString()
-                    TextBox4.Text = reader("place").ToString()
+                    TextBox3.Text = tanggal
+                    TextBox4.Text = jam
+                    TextBox1.Text = reader("name").ToString()
+                    TextBox2.Text = reader("place").ToString()
                 End If
 
                 reader.Close()
@@ -29,17 +29,12 @@ Public Class agenda
             End If
         End If
     End Sub
-
-    Protected Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-
-    End Sub
-
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim koneksi As New MySqlConnection("data source=localhost; user=root; pwd=''; initial catalog=db_kehadiran")
         koneksi.Open()
 
         Dim method As String = Request.QueryString("method")
-        Dim tgl_agenda As DateTime = DateTime.Parse(TextBox2.Text & " " & TextBox1.Text)
+        Dim tgl_agenda As DateTime = DateTime.Parse(TextBox3.Text & " " & TextBox4.Text)
         If method = "update" Then
             Dim id As String = Request.QueryString("id")
             Debug.Print(TextBox3.Text)
@@ -47,8 +42,8 @@ Public Class agenda
                            SET name = @name, place = @place, started_at = @tgl_agenda 
                            WHERE id = @id"
             Dim cmd As New MySqlCommand(query, koneksi)
-            cmd.Parameters.AddWithValue("@name", TextBox3.Text)
-            cmd.Parameters.AddWithValue("@place", TextBox4.Text)
+            cmd.Parameters.AddWithValue("@name", TextBox1.Text)
+            cmd.Parameters.AddWithValue("@place", TextBox2.Text)
             cmd.Parameters.AddWithValue("@tgl_agenda", tgl_agenda)
             cmd.Parameters.AddWithValue("@id", id)
 
@@ -63,14 +58,15 @@ Public Class agenda
             Dim query As String = "INSERT INTO agendas (name, place, started_at) 
                            VALUES (@name, @place, @tgl_agenda)"
             Dim cmd As New MySqlCommand(query, koneksi)
-            cmd.Parameters.AddWithValue("@name", TextBox3.Text)
-            cmd.Parameters.AddWithValue("@place", TextBox4.Text)
+            cmd.Parameters.AddWithValue("@name", TextBox1.Text)
+            cmd.Parameters.AddWithValue("@place", TextBox2.Text)
             cmd.Parameters.AddWithValue("@tgl_agenda", tgl_agenda)
 
             Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
 
             If rowsAffected > 0 Then
                 MsgBox("Data berhasil disimpan", MsgBoxStyle.Information)
+                HttpContext.Current.Response.Redirect("main.aspx")
             Else
                 MsgBox("Data gagal disimpan", MsgBoxStyle.Exclamation)
             End If
@@ -80,9 +76,5 @@ Public Class agenda
         TextBox3.Text = ""
         TextBox4.Text = ""
         koneksi.Close()
-    End Sub
-
-    Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        HttpContext.Current.Response.Redirect("main.aspx")
     End Sub
 End Class

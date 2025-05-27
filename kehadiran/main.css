@@ -1,0 +1,253 @@
+﻿:root {
+    --color-black: #000;
+    --color-purple: #d1c4e9;
+    --color-purple2: #ede7f6;
+    --border-width: 2px;
+    --border-radius: 5px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    display: flex;
+    min-height: 100vh;
+    background-color: #3a4c4e;
+}
+
+form {
+    min-height: 100vh;
+    width: 100%;
+}
+.nav {
+    width: 220px;
+    background-color: #3a4c4e;
+    color: white;
+    padding: 2rem 1rem;
+    display: flex;
+    top: 20px;
+    flex-direction: column;
+    gap: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.nav h2 {
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav ul li {
+    margin: 1rem 0;
+}
+
+.nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.nav ul li a:hover {
+    background-color: #34495e;
+}
+
+.main-container {
+    margin-left: 220px;
+    margin-top: 10px;
+    background-color: #f8f7f1;
+    padding: 3rem;
+    flex: 1;
+    border-top-left-radius: 20px;
+    height:100%;
+}
+
+.card-container {
+    margin-top: 30px;
+    display: flex;
+    gap: 100px;
+    padding: 20px 0;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border-radius: 16px;
+    width: 300px;
+    height: 150px;
+    padding: 20px;
+    border: var(--border-width) solid var(--color-black);
+    border-radius: var(--border-radius);
+    box-shadow: 6px 6px 0px 0px var(--color-black);
+    overflow: hidden;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+}
+
+.card-icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.card-content h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.card-content p {
+    text-align: center;
+    margin-top: 5px;
+}
+.card-content p span{
+    color:black;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.card-content.calendar {
+    margin-top:20px;
+    text-align:center;
+}
+.card.green {
+    background-color: #d3f3df;
+}
+
+.card.red {
+    background-color: #f9d6d6;
+}
+
+.search-agenda{
+    margin:30px 0 10px 0;
+}
+#Label4 {
+    margin-left: 10px;
+}
+
+#TextBox2 {
+    width: 160px;
+    height:22px;
+}
+
+.custom-grid {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid var(--color-black);
+    margin-top: 20px;
+    background: var(--color-purple2);
+}
+
+.custom-grid th,
+.custom-grid td {
+    border-bottom: 1px solid var(--color-black);
+    padding: 15px;
+    text-align: justify;
+    white-space: nowrap;
+}
+
+.custom-grid td:nth-last-child(-n+2),
+.custom-grid th:nth-last-child(-n+2) {
+    text-align: center;
+}
+
+.custom-grid tr:hover {
+    background-color: var(--color-purple);
+}
+
+.action-btn {
+    display: inline-block;
+    padding: 6px 10px;
+    margin: 2px;
+    font-size: 13px;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.action-btn.detail {
+    background-color: #2196F3;
+}
+
+.action-btn.presensi {
+    background-color: #4CAF50;
+}
+
+.action-btn.update {
+    background-color: #FFC107;
+    color: black;
+}
+
+.action-btn.delete {
+    background-color: #F44336;
+}
+
+#Button1 {
+    margin-left: 20px;
+    color: var(--color-black);
+    background-color:white;
+    text-decoration: none;
+    padding: 10px;
+    width: 20px;
+    font-size: 16px;
+    border-radius: var(--border-radius);
+    border: 1.5px solid var(--color-black);
+    box-shadow: 4px 4px 0px 0px var(--color-black);
+}
+
+#Button1:hover {
+    cursor: pointer;
+    border-width: 2px;
+    box-shadow: none;
+    transition: all 0.2s ease-in-out;
+}
+
+#TextBox2 {
+    border: none;
+    border-bottom: 2px solid var(--color-black);
+    background-color: transparent;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-left: 0px;
+}
+
+#TextBox2:focus {
+    outline: none;
+}
+
+#TextBox1 {
+    color: var(--color-black);
+    text-decoration: none;
+    padding: 10px;
+    width: 165px;
+    font-size: 15px;
+    border-radius: var(--border-radius);
+    border: 1.5px solid var(--color-black);
+    box-shadow: 4px 4px 0px 0px var(--color-black);
+}
+
+#TextBox1:focus {
+    outline: none;
+}

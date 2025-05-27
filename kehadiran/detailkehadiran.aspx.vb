@@ -24,20 +24,10 @@ Public Class detailkehadiran
         cmd2.Parameters.AddWithValue("@id", id)
         Dim reader As MySqlDataReader = cmd2.ExecuteReader()
         If reader.Read() Then
-            Label1.Text = "List Kehadiran Acara " + reader("name").ToString()
+            Dim nama_agenda As String = reader("name").ToString()
+            HeaderTitle.InnerText = HeaderTitle.InnerText & " " & nama_agenda
         End If
         koneksi.Close()
 
-    End Sub
-
-    Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView1.SelectedIndexChanged
-
-    End Sub
-
-    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        HttpContext.Current.Response.Redirect("agenda.aspx")
-    End Sub
-    Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        HttpContext.Current.Response.Redirect("main.aspx")
     End Sub
 End Class

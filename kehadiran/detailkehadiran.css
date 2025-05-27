@@ -1,0 +1,104 @@
+﻿:root {
+    --color-black: #000;
+    --color-purple: #d1c4e9;
+    --color-purple2: #ede7f6;
+
+    --border-width: 2px;
+    --border-radius: 5px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    display: flex;
+    min-height: 100vh;
+    background-color: #3a4c4e;
+}
+
+form {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.nav {
+    width: 220px;
+    background-color: #3a4c4e;
+    color: white;
+    padding: 2rem 1rem;
+    display: flex;
+    top: 20px;
+    flex-direction: column;
+    gap: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.nav h2 {
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav ul li {
+    margin: 1rem 0;
+}
+
+.nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.nav ul li a:hover {
+    background-color: #34495e;
+}
+
+.main-container {
+    margin-left: 220px;
+    margin-top: 10px;
+    background-color: #f8f7f1;
+    padding: 3rem;
+    flex: 1;
+    border-top-left-radius: 20px;
+    height: 100%;
+}
+
+.custom-grid {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid var(--color-black);
+    margin-top: 50px;
+    background: var(--color-purple2);
+}
+
+.custom-grid th,
+.custom-grid td {
+    border-bottom: 1px solid var(--color-black);
+    padding: 15px;
+    text-align: justify;
+    white-space: nowrap;
+}
+
+.custom-grid td:nth-last-child(-n+2),
+.custom-grid th:nth-last-child(-n+2) {
+    text-align: center;
+}
+
+.custom-grid tr:hover {
+    background-color: var(--color-purple);
+}
